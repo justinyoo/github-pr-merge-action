@@ -20,6 +20,17 @@ namespace GitHubActionsPrMerge.ConsoleApp
         string Sha { get; }
 
         /// <summary>
+        /// Gets the HEAD ref value.
+        /// </summary>
+        /// <value></value>
+        string Ref { get; }
+
+        /// <summary>
+        /// Gets the value indicating whether the PR has been merged or not.
+        /// </summary>
+        bool IsMerged { get; }
+
+        /// <summary>
         /// Sets the <see cref="IGitHubClient"/> instance.
         /// </summary>
         /// <param name="client"><see cref="IGitHubClient"/> instance.</param>
@@ -37,7 +48,14 @@ namespace GitHubActionsPrMerge.ConsoleApp
         /// Performs the PR merge.
         /// </summary>
         /// <param name="options"><see cref="Options"/> instance.</param>
+        /// <returns>Returns <see cref="IMessageHandler"/> instance.</returns>
+        Task<IMessageHandler> MergePrAsync(Options options);
+
+        /// <summary>
+        /// Deletes the branch after the PR merge.
+        /// </summary>
+        /// <param name="options"><see cref="Options"/> instance.</param>
         /// <returns>Returns the exit code. 0 means success.</returns>
-        Task<int> MergePrAsync(Options options);
+        Task<int> DeleteBranchAsync(Options options);
     }
 }

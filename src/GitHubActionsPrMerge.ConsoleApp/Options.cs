@@ -44,5 +44,11 @@ namespace GitHubActionsPrMerge.ConsoleApp
         /// </summary>
         [Option('d', "commit-description", Required = false, Default = "", HelpText = "Extra detail to append to automatic commit message.")]
         public virtual string CommitMessage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the commit message.
+        /// </summary>
+        [Option('b', "delete-branch", Required = false, Default = false, HelpText = "Value indicating whether to delete the branch after the PR merge or not.")]
+        public virtual bool DeleteBranch { get; set; }
     }
 }

@@ -17,9 +17,11 @@
               "-r",
               "github-pr-merge-action",
               "-i",
-              "1",
+              "2",
               "-m",
-              "Merge"
+              "Merge",
+              "-b",
+              "true"
             ],
             "cwd": "${workspaceFolder}/src/GitHubActionsPrMerge.ConsoleApp",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
