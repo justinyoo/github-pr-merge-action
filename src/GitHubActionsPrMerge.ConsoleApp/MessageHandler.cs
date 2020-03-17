@@ -34,8 +34,7 @@ namespace GitHubActionsPrMerge.ConsoleApp
                                .Get(options.Owner, options.Repository, options.IssueId)
                                .ConfigureAwait(false);
 
-            this.Sha = pr.MergeCommitSha;
-            var sha = pr.Head.Sha;
+            this.Sha = pr.Head.Sha;
 
             return this;
         }

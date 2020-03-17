@@ -19,11 +19,8 @@ namespace GitHubActionsPrMerge.ConsoleApp
         /// Gets or sets the <see cref="IGitHubClient"/> instance.
         /// </summary>
         public static IGitHubClient GitHubClient { get; set; } = new GitHubClient(new ProductHeaderValue(Environment.GetEnvironmentVariable("USER_AGENT")))
-#if DEBUG
-                                                                     .WithCredentials(Environment.GetEnvironmentVariable("GITHUB_USERNAME"), Environment.GetEnvironmentVariable("GITHUB_PASSWORD"));
-#else
                                                                      .WithCredentials(Environment.GetEnvironmentVariable("GITHUB_TOKEN"));
-#endif
+
         /// <summary>
         /// Gets or sets the <see cref="IMessageHandler"/> instance.
         /// </summary>
