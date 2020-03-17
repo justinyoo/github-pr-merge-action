@@ -17,9 +17,9 @@
               "-r",
               "github-pr-merge-action",
               "-i",
-              "2",
+              "<issue_number>",
               "-m",
-              "Merge",
+              "Squash",
               "-b",
               "true"
             ],
