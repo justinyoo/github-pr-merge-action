@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD3FE582-0A84-426C-82CE-1CD6D1009F74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubActions.PrMerge.ConsoleApp", "src\GitHubActionsPrMerge.ConsoleApp\GitHubActions.PrMerge.ConsoleApp.csproj", "{3ACF3451-90C2-4F52-B60B-61A2A5A060AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubActions.PrMerge.ConsoleApp", "src\GitHubActions.PrMerge.ConsoleApp\GitHubActions.PrMerge.ConsoleApp.csproj", "{3ACF3451-90C2-4F52-B60B-61A2A5A060AD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B105E9E3-25DB-4468-BB23-599B5A4D895D}"
 EndProject

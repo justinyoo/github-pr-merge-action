@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
 
-using GitHubActionsPrMerge.ConsoleApp.Extensions;
+using GitHubActions.PrMerge.ConsoleApp.Extensions;
 
 using Octokit;
 
-namespace GitHubActionsPrMerge.ConsoleApp
+namespace GitHubActions.PrMerge.ConsoleApp
 {
     /// <summary>
     /// This represents the console app entity.

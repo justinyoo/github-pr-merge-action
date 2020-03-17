@@ -1,6 +1,6 @@
 using Octokit;
 
-namespace GitHubActionsPrMerge.ConsoleApp.Extensions
+namespace GitHubActions.PrMerge.ConsoleApp.Extensions
 {
     /// <summary>
     /// This represents the extension entity for the <see cref="GitHubClient"/> class.

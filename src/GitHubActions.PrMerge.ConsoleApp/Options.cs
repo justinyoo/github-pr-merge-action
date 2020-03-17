@@ -2,7 +2,7 @@ using CommandLine;
 
 using Octokit;
 
-namespace GitHubActionsPrMerge.ConsoleApp
+namespace GitHubActions.PrMerge.ConsoleApp
 {
     /// <summary>
     /// This represents the parameters entity for the console app.
