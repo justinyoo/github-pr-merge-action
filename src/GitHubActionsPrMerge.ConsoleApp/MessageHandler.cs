@@ -19,6 +19,12 @@ namespace GitHubActionsPrMerge.ConsoleApp
         public virtual string Sha { get; private set; }
 
         /// <inheritdoc />
+        public virtual string Ref { get; private set; }
+
+        /// <inheritdoc />
+        public virtual bool IsMerged { get; private set; }
+
+        /// <inheritdoc />
         public IMessageHandler WithGitHubClient(IGitHubClient client)
         {
             this.GitHubClient = client ?? throw new ArgumentNullException(nameof(client));
@@ -35,12 +41,13 @@ namespace GitHubActionsPrMerge.ConsoleApp
                                .ConfigureAwait(false);
 
             this.Sha = pr.Head.Sha;
+            this.Ref = pr.Head.Ref;
 
             return this;
         }
 
         /// <inheritdoc />
-        public async Task<int> MergePrAsync(Options options)
+        public async Task<IMessageHandler> MergePrAsync(Options options)
         {
             var mpr = new MergePullRequest()
                           .WithCommitTitle(options.CommitTitle)
@@ -53,12 +60,38 @@ namespace GitHubActionsPrMerge.ConsoleApp
                                    .Merge(options.Owner, options.Repository, options.IssueId, mpr)
                                    .ConfigureAwait(false);
 
-            if (result.Merged)
+            this.IsMerged = result.Merged;
+
+            return this;
+        }
+
+        /// <inheritdoc />
+        public async Task<int> DeleteBranchAsync(Options options)
+        {
+            if (!this.IsMerged)
+            {
+                return 1;
+            }
+
+            if (!options.DeleteBranch)
             {
                 return 0;
             }
 
-            return 1;
+            try
+            {
+                await this.GitHubClient
+                          .Git
+                          .Reference
+                          .Delete(options.Owner, options.Repository, $"heads/{this.Ref}")
+                          .ConfigureAwait(false);
+
+                return 0;
+            }
+            catch
+            {
+                return 1;
+            }
         }
     }
 }

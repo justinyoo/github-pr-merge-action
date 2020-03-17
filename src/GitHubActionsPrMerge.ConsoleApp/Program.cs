@@ -47,6 +47,7 @@ namespace GitHubActionsPrMerge.ConsoleApp
             var result = MessageHandler.WithGitHubClient(GitHubClient)
                                        .FindShaAsync(options)
                                        .MergePrAsync(options)
+                                       .DeleteBranchAsync(options)
                                        .Result;
 
             return result;
