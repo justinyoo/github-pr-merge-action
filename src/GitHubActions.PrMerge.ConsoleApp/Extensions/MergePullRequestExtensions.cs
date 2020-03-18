@@ -17,6 +17,11 @@ namespace GitHubActions.PrMerge.ConsoleApp.Extensions
         /// <returns>Returns the <see cref="MergePullRequest"/> instance.</returns>
         public static MergePullRequest WithCommitTitle(this MergePullRequest value, string commitTitle)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             value.CommitTitle = commitTitle;
 
             return value;
@@ -30,6 +35,11 @@ namespace GitHubActions.PrMerge.ConsoleApp.Extensions
         /// <returns>Returns the <see cref="MergePullRequest"/> instance.</returns>
         public static MergePullRequest WithCommitMessage(this MergePullRequest value, string commitMessage)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             value.CommitMessage = commitMessage;
 
             return value;
@@ -43,6 +53,11 @@ namespace GitHubActions.PrMerge.ConsoleApp.Extensions
         /// <returns>Returns the <see cref="MergePullRequest"/> instance.</returns>
         public static MergePullRequest WithSha(this MergePullRequest value, string sha)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             if (string.IsNullOrWhiteSpace(sha))
             {
                 throw new ArgumentNullException(nameof(sha));
@@ -61,6 +76,11 @@ namespace GitHubActions.PrMerge.ConsoleApp.Extensions
         /// <returns>Returns the <see cref="MergePullRequest"/> instance.</returns>
         public static MergePullRequest WithMergeMethod(this MergePullRequest value, PullRequestMergeMethod mergeMethod)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
             value.MergeMethod = mergeMethod;
 
             return value;

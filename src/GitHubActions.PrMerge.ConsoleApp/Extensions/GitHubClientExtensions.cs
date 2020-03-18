@@ -1,3 +1,5 @@
+using System;
+
 using Octokit;
 
 namespace GitHubActions.PrMerge.ConsoleApp.Extensions
@@ -15,6 +17,16 @@ namespace GitHubActions.PrMerge.ConsoleApp.Extensions
         /// <returns>Returns the <see cref="GitHubClient"/> instance.</returns>
         public static GitHubClient WithCredentials(this GitHubClient value, string token)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                throw new ArgumentNullException(nameof(token));
+            }
+
             value.Credentials = new Credentials(token);
 
             return value;
@@ -29,6 +41,21 @@ namespace GitHubActions.PrMerge.ConsoleApp.Extensions
         /// <returns>Returns the <see cref="GitHubClient"/> instance.</returns>
         public static GitHubClient WithCredentials(this GitHubClient value, string username, string password)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                throw new ArgumentNullException(nameof(username));
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                throw new ArgumentNullException(nameof(password));
+            }
+
             value.Credentials = new Credentials(username, password);
 
             return value;
