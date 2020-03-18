@@ -1,0 +1,51 @@
+name: GitHub PR Merge (Generic)
+author: Justin Yoo
+description: This action merges a PR on a given GitHub repository.
+
+branding:
+  icon: check
+  color: blue
+
+inputs:
+  authToken:
+    description: GitHub authentication token
+    required: true
+  owner:
+    description: GitHub repository owner.
+    required: true
+  repository:
+    description: GitHub repository.
+    required: true
+  issueId:
+    description: GitHub issue ID for the PR.
+    required: true
+  mergeMethod:
+    description: Merge method to use. Possible values are Merge, Squash or Rebase. Default is Merge.
+    required: false
+    default: Merge
+  commitTitle:
+    description: Title for the automatic commit message.
+    required: false
+    default: ''
+  commitDescription:
+    description: Extra detail to append to automatic commit message.
+    required: false
+    default: ''
+  deleteBranch:
+    description: Value indicating whether to delete the branch after the PR merge or not.
+    required: false
+    default: 'false'
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    USER_AGENT: GitHubActionsPrMerge
+    AUTH_TOKEN: ${{ inputs.authToken }}
+    OWNER: ${{ inputs.owner }}
+    REPOSITORY: ${{ inputs.repository }}
+    ISSUE_ID: ${{ inputs.issueId }}
+    MERGE_METHOD: ${{ inputs.mergeMethod }}
+    COMMIT_TITLE: ${{ inputs.commitTitle }}
+    COMMIT_DESCRIPTION: ${{ inputs.commitDescription }}
+    DELETE_BRANCH: ${{ inputs.deleteBranch }}
