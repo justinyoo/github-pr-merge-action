@@ -54,3 +54,4 @@ jobs:
         commitTitle: ''
         commitDescription: ''
         deleteBranch: 'true'
+
