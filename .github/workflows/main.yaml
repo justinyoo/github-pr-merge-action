@@ -44,7 +44,6 @@ jobs:
         dotnet test test/**/*.csproj
 
     - name: Run the private action
-      if: on.push.branches == 'dev'
       uses: ./
       with:
         authToken: ${{ secrets.GITHUB_TOKEN }}
