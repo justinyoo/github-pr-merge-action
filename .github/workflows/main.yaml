@@ -49,7 +49,7 @@ jobs:
         authToken: ${{ secrets.GITHUB_TOKEN }}
         owner: aliencube
         repository: github-pr-merge-action
-        issueId: '5'
+        issueId: '6'
         mergeMethod: Squash
         commitTitle: ''
         commitDescription: ''
