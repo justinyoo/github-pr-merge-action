@@ -15,6 +15,10 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
+    env:
+      USER_AGENT: GitHubActionsPrMerge
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v1
