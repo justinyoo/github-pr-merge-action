@@ -2,7 +2,7 @@ using CommandLine;
 
 using Octokit;
 
-namespace GitHubActionsPrMerge.ConsoleApp
+namespace GitHubActions.PrMerge.ConsoleApp
 {
     /// <summary>
     /// This represents the parameters entity for the console app.
@@ -28,7 +28,7 @@ namespace GitHubActionsPrMerge.ConsoleApp
         public virtual int IssueId { get; set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="MergeType"/> value.
+        /// Gets or sets the <see cref="PullRequestMergeMethod"/> value.
         /// </summary>
         [Option('m', "merge-method", Required = false, Default = PullRequestMergeMethod.Merge, HelpText = "Merge method to use. Possible values are Merge, Squash or Rebase. Default is Merge.")]
         public virtual PullRequestMergeMethod MergeMethod { get; set; }

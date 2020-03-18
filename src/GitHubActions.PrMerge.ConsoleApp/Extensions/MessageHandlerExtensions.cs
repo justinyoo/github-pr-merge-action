@@ -1,6 +1,7 @@
+using System;
 using System.Threading.Tasks;
 
-namespace GitHubActionsPrMerge.ConsoleApp.Extensions
+namespace GitHubActions.PrMerge.ConsoleApp.Extensions
 {
     /// <summary>
     /// This represents the extension entity for the <see cref="MessageHandler"/> class.
@@ -15,6 +16,16 @@ namespace GitHubActionsPrMerge.ConsoleApp.Extensions
         /// <returns>Returns the <see cref="IMessageHandler"/> instance.</returns>
         public static async Task<IMessageHandler> MergePrAsync(this Task<IMessageHandler> value, Options options)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
             var instance = await value.ConfigureAwait(false);
 
             return await instance.MergePrAsync(options).ConfigureAwait(false);
@@ -28,6 +39,16 @@ namespace GitHubActionsPrMerge.ConsoleApp.Extensions
         /// <returns>Returns exit code.</returns>
         public static async Task<int> DeleteBranchAsync(this Task<IMessageHandler> value, Options options)
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException(nameof(value));
+            }
+
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
             var instance = await value.ConfigureAwait(false);
 
             return await instance.DeleteBranchAsync(options).ConfigureAwait(false);

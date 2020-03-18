@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 using Octokit;
 
-namespace GitHubActionsPrMerge.ConsoleApp
+namespace GitHubActions.PrMerge.ConsoleApp
 {
     /// <summary>
     /// This provides interfaces to the <see cref="MessageHandler" /> class.

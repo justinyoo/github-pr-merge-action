@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
 
-using GitHubActionsPrMerge.ConsoleApp.Extensions;
+using GitHubActions.PrMerge.ConsoleApp.Extensions;
 
 using Octokit;
 
-namespace GitHubActionsPrMerge.ConsoleApp
+namespace GitHubActions.PrMerge.ConsoleApp
 {
     /// <summary>
     /// This represents the console app entity.
@@ -35,6 +35,16 @@ namespace GitHubActionsPrMerge.ConsoleApp
         /// <inheritdoc />
         public async Task<IMessageHandler> FindShaAsync(Options options)
         {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            if (this.GitHubClient == null)
+            {
+                throw new InvalidOperationException("GitHubClient Not Found");
+            }
+
             var pr = await this.GitHubClient
                                .PullRequest
                                .Get(options.Owner, options.Repository, options.IssueId)
@@ -49,6 +59,16 @@ namespace GitHubActionsPrMerge.ConsoleApp
         /// <inheritdoc />
         public async Task<IMessageHandler> MergePrAsync(Options options)
         {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            if (this.GitHubClient == null)
+            {
+                throw new InvalidOperationException("GitHubClient Not Found");
+            }
+
             var mpr = new MergePullRequest()
                           .WithCommitTitle(options.CommitTitle)
                           .WithCommitMessage(options.CommitMessage)
@@ -68,6 +88,16 @@ namespace GitHubActionsPrMerge.ConsoleApp
         /// <inheritdoc />
         public async Task<int> DeleteBranchAsync(Options options)
         {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            if (this.GitHubClient == null)
+            {
+                throw new InvalidOperationException("GitHubClient Not Found");
+            }
+
             if (!this.IsMerged)
             {
                 return 1;
