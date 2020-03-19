@@ -47,9 +47,9 @@ jobs:
       uses: ./
       with:
         authToken: ${{ secrets.GITHUB_TOKEN }}
-        owner: aliencube
+        owner: justinyoo
         repository: github-pr-merge-action
-        issueId: '6'
+        issueId: '7'
         mergeMethod: Squash
         commitTitle: ''
         commitDescription: ''
