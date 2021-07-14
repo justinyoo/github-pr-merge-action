@@ -20,7 +20,7 @@ This is a GitHub Actions that merges a PR with the most generic way.
 ```yaml
 steps:
   name: Merge PR
-  uses: justinyoo/github-pr-merge-action@v0.8.0
+  uses: justinyoo/github-pr-merge-action@v1
   with:
     authToken: ${{ secrets.GITHUB_TOKEN }}
     owner: <github_username_or_organisation_name>
