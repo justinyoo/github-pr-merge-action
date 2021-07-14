@@ -3,22 +3,17 @@ name: Build and Test GitHub Action
 on:
   push:
     branches:
-    - master
-    - release/*
-    - feature/*
+    - 'release/*'
+    - 'feature/*'
   pull_request:
     branches:
-    - dev
+    - main
 
 jobs:
   build_test:
     name: Build and test the GitHub Action
-    strategy:
-      matrix:
-        os: [ 'ubuntu-latest' ]
-        dotnet: [ '3.1.100' ]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     env:
       USER_AGENT: GitHubActionsPrMerge
@@ -31,7 +26,7 @@ jobs:
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{ matrix.dotnet }}
+        dotnet-version: '3.1.x'
 
     - name: Restore NuGet packages
       shell: bash

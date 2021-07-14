@@ -3,17 +3,13 @@ name: Build, Test, Run GitHub Action
 on:
   push:
     branches:
-    - dev
+    - main
 
 jobs:
   build_test_run:
     name: Build, test and run the GitHub Action
-    strategy:
-      matrix:
-        os: [ 'ubuntu-latest' ]
-        dotnet: [ '3.1.100' ]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     env:
       USER_AGENT: GitHubActionsPrMerge
@@ -21,12 +17,12 @@ jobs:
 
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
 
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{ matrix.dotnet }}
+        dotnet-version: '3.1.x'
 
     - name: Restore NuGet packages
       shell: bash
@@ -49,7 +45,7 @@ jobs:
         authToken: ${{ secrets.GITHUB_TOKEN }}
         owner: justinyoo
         repository: github-pr-merge-action
-        issueId: '7'
+        issueId: '8'
         mergeMethod: Squash
         commitTitle: ''
         commitDescription: ''
