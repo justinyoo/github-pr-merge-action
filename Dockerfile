@@ -6,9 +6,9 @@ LABEL "com.github.actions.description"="This action merges a PR on a given GitHu
 LABEL "com.github.actions.icon"="check"
 LABEL "com.github.actions.color"="blue"
 
-LABEL "repository"="http://github.com/aliencube/github-pr-merge-action"
-LABEL "homepage"="http://github.com/aliencube"
-LABEL "maintainer"="Justin Yoo <no-reply@aliencube.com>"
+LABEL "repository"="http://github.com/justinyoo/github-pr-merge-action"
+LABEL "homepage"="http://github.com/justinyoo"
+LABEL "maintainer"="Justin Yoo <no-reply@justinchronicles.net>"
 
 COPY *.sln .
 COPY src/ ./src/
